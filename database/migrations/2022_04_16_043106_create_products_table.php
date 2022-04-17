@@ -12,6 +12,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('title');
             $table->decimal('price');
+            $table->boolean('status');
             $table->enum('category', ['Doces', 'Salgadas']);
             $table->json('ingredients');
             $table->text('image');

@@ -11,7 +11,16 @@ class ProductController extends Controller
     public function get(Request $request)
     {
         try {
-            $products = Product::all();
+            if($request->type == 'Doces' || $request->type == 'doces') {
+                $products = Product::where('category', 'Doces')->get();
+            }
+            else if($request->type == 'Salgadas' || $request->type == 'salgadas') {
+                $products = Product::where('category', 'Salgadas')->get();
+            }
+            else
+            {
+                $products = Product::all();
+            }
 
             return response()->json([
                 'status' => 'success',
