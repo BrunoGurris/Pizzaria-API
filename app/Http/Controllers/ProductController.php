@@ -34,4 +34,23 @@ class ProductController extends Controller
             ], 404);
         }
     }
+
+
+    public function slug($slug)
+    {
+        try {
+            $products = Product::where('slug', $slug)->get();
+
+            return response()->json([
+                'status' => 'success',
+                'products' => $products
+            ], 200);
+        }
+        catch(Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Não foi possível carregar os produtos'
+            ], 404);
+        }
+    }
 }

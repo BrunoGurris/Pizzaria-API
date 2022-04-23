@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/products', [ProductController::class, 'get']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/products/{slug}', [ProductController::class, 'slug']);
 
 Route::group(['middleware' => ['apiJWT']], function() {
     Route::get('/logout', [AuthController::class, 'logout']);
