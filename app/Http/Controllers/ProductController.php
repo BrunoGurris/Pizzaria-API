@@ -11,10 +11,10 @@ class ProductController extends Controller
     public function get(Request $request)
     {
         try {
-            if($request->category == 'Doces' || $request->category == 'doces') {
+            if($request->category == 'doces') {
                 $products = Product::where('category', 'Doces')->get();
             }
-            else if($request->category == 'Salgadas' || $request->category == 'salgadas') {
+            else if($request->category == 'salgadas') {
                 $products = Product::where('category', 'Salgadas')->get();
             }
             else

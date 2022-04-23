@@ -16,6 +16,7 @@ class CreateProductsTable extends Migration
             $table->enum('category', ['Doces', 'Salgadas']);
             $table->json('ingredients');
             $table->text('image');
+            $table->string('slug');
             $table->timestamps();
         });
     }
