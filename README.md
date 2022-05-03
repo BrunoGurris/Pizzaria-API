@@ -2,17 +2,7 @@
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ## Integrantes
-Bruno Alexandre
-190567; <br />
-Geovanne Bueno
-190803; <br />
-Guilherme Pereira
-190570; <br />
-Marcos Bueno
-180565; <br />
-Rebeca Pedroso
-190664; <br />
-
+[Bruno Gurris](https://github.com/BrunoGurris) RA 190567;<br /> [Geovanne Lopes](https://github.com/Geovannelopes) RA 190803;<br /> [Guilherme Pereira](https://github.com/guilherme033) RA 190570;<br /> [Marcos Bueno](https://github.com/marcos-bueno) RA 180565;<br /> [Rebecca Pedroso](https://github.com/rehpedroso) RA 190664;
 
 ## Autenticação
 * Entrar: https://systemgurris.com.br/api/login **(POST)** { email: 'admin@email.com', password: '123' }
