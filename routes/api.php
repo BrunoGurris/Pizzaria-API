@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,8 @@ Route::group(['middleware' => ['apiJWT']], function() {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/refresh', [AuthController::class, 'refresh']);
     Route::get('/me', [AuthController::class, 'me']);
+
+    Route::prefix('dashboard')->group(function() {
+        Route::post('/create', [DashboardProductController::class, 'create']);
+    });
 });

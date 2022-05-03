@@ -11,12 +11,14 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->decimal('price');
+            $table->decimal('priceP');
+            $table->decimal('priceM');
+            $table->decimal('priceG');
             $table->boolean('status');
             $table->enum('category', ['Doces', 'Salgadas']);
-            $table->json('ingredients');
+            $table->json('ingredients')->nullable();
             $table->text('image');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

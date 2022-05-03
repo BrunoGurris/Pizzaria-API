@@ -31,7 +31,7 @@ class ProductController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Não foi possível carregar os produtos'
-            ], 404);
+            ], 400);
         }
     }
 
@@ -50,7 +50,7 @@ class ProductController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Não foi possível carregar os produtos'
-            ], 404);
+            ], 400);
         }
     }
 }
