@@ -1,6 +1,18 @@
 # Pizzaria
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+## Integrantes
+Bruno Alexandre
+190567; <br />
+Geovanne Bueno
+190803; <br />
+Guilherme Pereira
+190570; <br />
+Marcos Bueno
+180565; <br />
+Rebeca Pedroso
+190664; <br />
+
 
 ## Autenticação
 * Entrar: https://systemgurris.com.br/api/login **(POST)** { email: 'admin@email.com', password: '123' }
