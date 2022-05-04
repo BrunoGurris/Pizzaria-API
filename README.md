@@ -1,6 +1,7 @@
 # Pizzaria
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Futuramente as rotas sera criada no SwaggerHub para melhor visualização
+
 ## Integrantes
 [Bruno Gurris](https://github.com/BrunoGurris) RA 190567;<br /> [Geovanne Lopes](https://github.com/Geovannelopes) RA 190803;<br /> [Guilherme Pereira](https://github.com/guilherme033) RA 190570;<br /> [Marcos Bueno](https://github.com/marcos-bueno) RA 180565;<br /> [Rebecca Pedroso](https://github.com/rehpedroso) RA 190664;
 
@@ -15,3 +16,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 * Doces: https://systemgurris.com.br/api/products?category=doces **(GET)**
 * Salgadas: https://systemgurris.com.br/api/products?category=salgadas **(GET)**
 * Por Slug: https://systemgurris.com.br/api/products/{slug} **(GET)**
+
+## Produtos (Dashboard)
+
+
