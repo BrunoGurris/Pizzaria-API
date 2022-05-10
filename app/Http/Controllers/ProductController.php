@@ -12,14 +12,14 @@ class ProductController extends Controller
     {
         try {
             if($request->category == 'doces') {
-                $products = Product::where('category', 'Doces')->get();
+                $products = Product::where('category', 'Doces')->paginate();
             }
             else if($request->category == 'salgadas') {
-                $products = Product::where('category', 'Salgadas')->get();
+                $products = Product::where('category', 'Salgadas')->paginate();
             }
             else
             {
-                $products = Product::all();
+                $products = Product::paginate();
             }
 
             return response()->json([
@@ -39,7 +39,7 @@ class ProductController extends Controller
     public function slug($slug)
     {
         try {
-            $products = Product::where('slug', $slug)->get();
+            $products = Product::where('slug', $slug)->first();
 
             return response()->json([
                 'status' => 'success',

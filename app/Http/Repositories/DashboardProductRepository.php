@@ -19,7 +19,7 @@ class DashboardProductRepository
             $product->category = ucwords(strtolower($request->category));
             $product->ingredients = $request->ingredients;
             $product->image = $upload;
-            $product->slug = str_replace(' ', '-', $request->title);
+            $product->slug = mb_strtolower(str_replace(' ', '-', $request->title));
             $product->save();
 
             return response()->json([
