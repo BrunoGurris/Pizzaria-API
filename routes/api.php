@@ -27,5 +27,6 @@ Route::group(['middleware' => ['apiJWT']], function() {
 
     Route::prefix('dashboard')->group(function() {
         Route::post('/create', [DashboardProductController::class, 'create']);
+        Route::post('/destroy', [DashboardProductController::class, 'destroy']);
     });
 });

@@ -34,4 +34,23 @@ class DashboardProductRepository
             ], 400);
         }
     }
+
+
+    public function destroy($product, $user)
+    {
+        try {
+            $product->delete();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Produto excluído com sucesso'
+            ], 200);
+        }
+        catch(Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Não foi possível excluir o produto'
+            ], 400);
+        }
+    }
 }

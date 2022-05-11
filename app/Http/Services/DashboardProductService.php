@@ -139,4 +139,18 @@ class DashboardProductService
             ], 400);
         }
     }
+
+
+    public function destroy($product, $user)
+    {
+        try {
+            return $this->dashboardProductRepository->destroy($product, $user);
+        }
+        catch(Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Não foi possível excluir o produto'
+            ], 400);
+        }
+    }
 }
