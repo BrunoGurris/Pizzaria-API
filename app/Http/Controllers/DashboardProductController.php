@@ -34,6 +34,23 @@ class DashboardProductController extends Controller
     }
 
 
+    public function edit($id, Request $request)
+    {
+        try {
+            $user = Auth::user();
+            $product = Product::findOrFail($id);
+
+            return $this->dashboardProductService->edit($product, $request, $user);
+        }
+        catch(Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Não foi possível editar o produto'
+            ], 400);
+        }
+    }
+
+
     public function destroy($id)
     {
         try {

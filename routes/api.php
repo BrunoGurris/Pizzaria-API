@@ -25,8 +25,9 @@ Route::group(['middleware' => ['apiJWT']], function() {
     Route::get('/refresh', [AuthController::class, 'refresh']);
     Route::get('/me', [AuthController::class, 'me']);
 
-    Route::prefix('dashboard')->group(function() {
+    Route::prefix('products')->group(function() {
         Route::post('/create', [DashboardProductController::class, 'create']);
-        Route::post('/destroy', [DashboardProductController::class, 'destroy']);
+        Route::put('/{id}/edit', [DashboardProductController::class, 'edit']);
+        Route::delete('/{id}/delete', [DashboardProductController::class, 'destroy']);
     });
 });
