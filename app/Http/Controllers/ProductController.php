@@ -12,14 +12,14 @@ class ProductController extends Controller
     {
         try {
             if($request->category == 'doces') {
-                $products = Product::where('category', 'Doces')->paginate();
+                $products = Product::where('category', 'Doces')->paginate($request->limit);
             }
             else if($request->category == 'salgadas') {
-                $products = Product::where('category', 'Salgadas')->paginate();
+                $products = Product::where('category', 'Salgadas')->paginate($request->limit);
             }
             else
             {
-                $products = Product::paginate();
+                $products = Product::paginate($request->limit);
             }
 
             return response()->json([
