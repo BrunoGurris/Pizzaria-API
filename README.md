@@ -12,11 +12,45 @@ Futuramente as rotas serão criada no SwaggerHub para melhor visualização
 * Renovar Token: https://systemgurris.com.br/api/refresh **(GET)** { Authorization: Bearer Token }
 
 ## Produtos
-* Todas: https://systemgurris.com.br/api/products **(GET)**
-* Doces: https://systemgurris.com.br/api/products?category=doces **(GET)**
-* Salgadas: https://systemgurris.com.br/api/products?category=salgadas **(GET)**
-* Por Slug: https://systemgurris.com.br/api/products/{slug} **(GET)**
+<h6>GET</h6>
+<ul>
+    <li>Todas: https://systemgurris.com.br/api/products</li>
+    <li>Doces: https://systemgurris.com.br/api/products?category=doces</li>
+    <li>Salgadas: https://systemgurris.com.br/api/products?category=salgadas</li>
+    <li>Por Slug: https://systemgurris.com.br/api/products/{slug}</li>
+</ul>
 
-## Produtos (Dashboard)
+<h6>POST</h6>
+<ul>
+    <li>Create: https://systemgurris.com.br/api/products/create</li>
+    <ul>
+        <li>title: Pizza de Teste</li>
+        <li>priceP: 20</li>
+        <li>priceM: 23</li>
+        <li>priceG: 25</li>
+        <li>status: 1</li>
+        <li>category: Salgadas</li>
+        <li>ingredients: molho e quiejo</li>
+        <li>image: FILE</li>
+    </ul>
+</ul>
 
+<h6>PUT</h6>
+<ul>
+    <li>Edit: https://systemgurris.com.br/api/products/{id}/edit</li>
+    <ul>
+        <li>title: Edit Pizza</li>
+        <li>priceP: 21</li>
+        <li>priceM: 25</li>
+        <li>priceG: 30</li>
+        <li>status: 1</li>
+        <li>category: Doces</li>
+        <li>ingredients: teste</li>
+        <li>image: (Opcional) FILE</li>
+    </ul>
+</ul>
 
+<h6>DELETE</h6>
+<ul>
+    <li>Delete: https://systemgurris.com.br/api/products/{id}/delete</li>
+</ul>
