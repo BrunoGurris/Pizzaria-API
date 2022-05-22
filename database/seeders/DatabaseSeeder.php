@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $product->priceG = 36.90;
         $product->status = 1;
         $product->category = 'Salgadas';
-        $product->ingredients = ['catupiry', 'mussarela', 'parmesão', 'provolone'];
+        $product->ingredients = 'catupiry, mussarela, parmesão, provolone';
         $product->image = 'storage/products/4queijos.jpg';
         $product->slug = '4queijos';
         $product->save();
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         $product2->priceG = 33.90;
         $product2->status = 1;
         $product2->category = 'Salgadas';
-        $product2->ingredients = ['presunto', 'mussarela', 'tomate'];
+        $product2->ingredients = 'presunto, mussarela, tomate';
         $product2->image = 'storage/products/bauru.jpg';
         $product2->slug = 'bauru';
         $product2->save();
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
         $product3->priceG = 37.90;
         $product3->status = 0;
         $product3->category = 'Salgadas';
-        $product3->ingredients = ['calabresa', 'mussarela', 'cebola'];
+        $product3->ingredients = 'calabresa, mussarela, cebola';
         $product3->image = 'storage/products/calabresa.jpg';
         $product3->slug = 'calabresa';
         $product3->save();
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
         $product4->priceG = 36.90;
         $product4->status = 1;
         $product4->category = 'Doces';
-        $product4->ingredients = ['chocolate', 'granulado', 'morango'];
+        $product4->ingredients = 'chocolate, granulado, morango';
         $product4->image = 'storage/products/brigadeiro-morango.jpg';
         $product4->slug = 'brigadeiro-com-morango';
         $product4->save();
@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
         $product5->priceG = 40.90;
         $product5->status = 1;
         $product5->category = 'Doces';
-        $product5->ingredients = ['chocolate', 'granulado', 'kit kat'];
+        $product5->ingredients = 'chocolate, granulado, kit kat';
         $product5->image = 'storage/products/kitkat.jpg';
         $product5->slug = 'brigadeiro-com-kit-kat';
         $product5->save();
