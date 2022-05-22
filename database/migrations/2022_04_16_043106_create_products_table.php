@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
             $table->decimal('priceG');
             $table->boolean('status');
             $table->enum('category', ['Doces', 'Salgadas']);
-            $table->json('ingredients')->nullable();
+            $table->string('ingredients');
             $table->text('image');
             $table->string('slug')->unique();
             $table->timestamps();
