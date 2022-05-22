@@ -7,9 +7,19 @@ use Exception;
 
 class DashboardProductRepository
 {
-    public function create($request, $user, $upload)
+    public function create($request, $user)
     {
         try {
+            /* Faz o upload e verifica se o uplaod foi feito */
+            $upload = $request->file('image')->store('products');
+            if(!$upload) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Falha ao fazer upload da imagem',
+                    'where' => 'image'
+                ]);
+            }
+
             $product = new Product();
             $product->title = $request->title;
             $product->priceP = $request->priceP;
@@ -18,7 +28,7 @@ class DashboardProductRepository
             $product->status = $request->status;
             $product->category = ucwords(strtolower($request->category));
             $product->ingredients = $request->ingredients;
-            $product->image = $upload;
+            $product->image = 'storage/'.$upload;
             $product->slug = mb_strtolower(str_replace(' ', '-', $request->title));
             $product->save();
 

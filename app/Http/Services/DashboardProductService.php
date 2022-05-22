@@ -40,7 +40,7 @@ class DashboardProductService
             /* */
 
             /* Verifica o preço do tamanho P */
-            if(!is_float($request->priceP) && $request->priceP < 0) {
+            if(!is_float($request->priceP) && $request->priceP <= 0) {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'O preço do produto (tamanho P) deve ser maior que 0',
@@ -50,7 +50,7 @@ class DashboardProductService
             /* */
 
             /* Verifica o preço do tamanho M */
-            if(!is_float($request->priceM) && $request->priceM < 0) {
+            if(!is_float($request->priceM) && $request->priceM <= 0) {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'O preço do produto deve ser maior que 0',
@@ -60,7 +60,7 @@ class DashboardProductService
             /* */
 
             /* Verifica o preço do tamanho M */
-            if(!is_float($request->priceM) && $request->priceM < 0) {
+            if(!is_float($request->priceM) && $request->priceM <= 0) {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'O preço do produto deve ser maior que 0',
@@ -70,7 +70,7 @@ class DashboardProductService
             /* */
 
             /* Verifica o status */
-            if($request->status != true && $request->status != false) {
+            if($request->status != 1 && $request->status != 0) {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'Escolha uma opção válida para o status',
@@ -80,11 +80,21 @@ class DashboardProductService
             /* */
 
             /* Verifica a categoria */
-            if($request->category != 'doces' && $request->category != 'salgadas') {
+            if($request->category != 'Doces' && $request->category != 'Salgadas') {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'Escolha uma opção válida para a categoria',
                     'where' => 'category'
+                ], 406);
+            }
+            /* */
+
+            /* Verifica se tem igredientes */
+            if(empty($request->ingredients)) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Coloque pelo menos 1 ingrediente',
+                    'where' => 'ingredients'
                 ], 406);
             }
             /* */
@@ -120,17 +130,7 @@ class DashboardProductService
             }
             /* */
 
-            /* Faz o upload e verifica se o uplaod foi feito */
-            $upload = $request->file('image')->store('products');
-            if(!$upload) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Falha ao fazer upload da imagem',
-                    'where' => 'image'
-                ]);
-            }
-
-            return $this->dashboardProductRepository->create($request, $user, $upload);
+            return $this->dashboardProductRepository->create($request, $user);
         }
         catch(Exception $e) {
             return response()->json([
