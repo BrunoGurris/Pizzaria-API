@@ -14,7 +14,14 @@ class DashboardOrderController extends Controller
             $orders = Order::paginate($request->limit);
 
             foreach($orders as $order) {
-                $order->items = $order->items();
+                $items = $order->items();
+
+                $order->total = 0;
+                foreach($items as $item) {
+                    $order->total += $item->amount * $item->price;
+                }
+
+                $order->items = $items;
             }
 
             return response()->json([

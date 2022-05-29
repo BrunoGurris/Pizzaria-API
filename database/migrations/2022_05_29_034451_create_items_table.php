@@ -13,6 +13,7 @@ class CreateItemsTable extends Migration
             $table->foreignId('order_id');
             $table->foreignId('product_id');
             $table->enum('size', ['P', 'M', 'G']);
+            $table->integer('amount');
             $table->decimal('price');
             $table->timestamps();
         });

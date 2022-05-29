@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardOrderController;
 use App\Http\Controllers\DashboardProductController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,11 +17,23 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
+/* Rotas para usuarios deslogados */
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/products', [ProductController::class, 'get']);
-Route::get('/products/{slug}', [ProductController::class, 'slug']);
+Route::prefix('products')->group(function() {
+    Route::get('/', [ProductController::class, 'get']);
+    Route::get('/{slug}', [ProductController::class, 'slug']);
+});
 
+Route::prefix('orders')->group(function() {
+    Route::post('/create', [OrderController::class, 'create']);
+});
+/* */
+
+
+/* Rotas para usuarios logados */
 Route::group(['middleware' => ['apiJWT']], function() {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/refresh', [AuthController::class, 'refresh']);
@@ -36,3 +49,4 @@ Route::group(['middleware' => ['apiJWT']], function() {
         Route::get('/', [DashboardOrderController::class, 'get']);
     });
 });
+/* */

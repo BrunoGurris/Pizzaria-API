@@ -94,6 +94,7 @@ class DatabaseSeeder extends Seeder
         $item->order_id = 1;
         $item->product_id = 1;
         $item->size = 'M';
+        $item->amount = 1;
         $item->price = 34.90;
         $item->save();
 
@@ -101,6 +102,7 @@ class DatabaseSeeder extends Seeder
         $item2->order_id = 1;
         $item2->product_id = 2;
         $item2->size = 'G';
+        $item2->amount = 3;
         $item2->price = 33.90;
         $item2->save();
     }
