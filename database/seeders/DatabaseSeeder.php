@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Item;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -76,5 +78,32 @@ class DatabaseSeeder extends Seeder
         $product5->image = 'storage/products/kitkat.jpg';
         $product5->slug = 'brigadeiro-com-kit-kat';
         $product5->save();
+
+        $order = new Order();
+        $order->name = 'Bruno Alexandre';
+        $order->cpf = '477.500.968-09';
+        $order->zip_code = '18074-658';
+        $order->street = 'Rua Lucio Leme';
+        $order->number = '132';
+        $order->neighborhood = 'Jd. São Guilherme';
+        $order->city = 'Sorocaba';
+        $order->state = 'SP';
+        $order->save();
+
+        $item = new Item();
+        $item->order_id = 1;
+        $item->product_id = 1;
+        $item->size = 'M';
+        $item->amount = 1;
+        $item->price = 34.90;
+        $item->save();
+
+        $item2 = new Item();
+        $item2->order_id = 1;
+        $item2->product_id = 2;
+        $item2->size = 'G';
+        $item2->amount = 3;
+        $item2->price = 33.90;
+        $item2->save();
     }
 }
