@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardOrderController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -29,5 +30,9 @@ Route::group(['middleware' => ['apiJWT']], function() {
         Route::post('/create', [DashboardProductController::class, 'create']);
         Route::post('/{id}/edit', [DashboardProductController::class, 'edit']);
         Route::delete('/{id}/delete', [DashboardProductController::class, 'destroy']);
+    });
+
+    Route::prefix('orders')->group(function() {
+        Route::get('/', [DashboardOrderController::class, 'get']);
     });
 });
