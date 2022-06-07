@@ -53,4 +53,23 @@ class ProductController extends Controller
             ], 400);
         }
     }
+
+
+    public function getByID($id)
+    {
+        try {
+            $product = Product::findOrFail($id);
+
+            return response()->json([
+                'status' => 'success',
+                'product' => $product
+            ], 200);
+        }
+        catch(Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Não foi possível carregar os produtos'
+            ], 400);
+        }
+    }
 }
