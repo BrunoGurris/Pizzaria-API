@@ -25,7 +25,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::prefix('products')->group(function() {
     Route::get('/', [ProductController::class, 'get']);
     Route::get('/{slug}', [ProductController::class, 'slug']);
-    Route::get('/{id}', [ProductController::class, 'getByID']);
+    Route::get('/id/{id}', [ProductController::class, 'getByID']);
 });
 
 Route::prefix('orders')->group(function() {
