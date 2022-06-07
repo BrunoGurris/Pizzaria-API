@@ -32,6 +32,12 @@ Route::prefix('orders')->group(function() {
 });
 /* */
 
+Route::prefix('products')->group(function() {
+    Route::post('/create', [DashboardProductController::class, 'create']);
+    Route::post('/{id}/edit', [DashboardProductController::class, 'edit']);
+    Route::delete('/{id}/delete', [DashboardProductController::class, 'destroy']);
+});
+
 
 /* Rotas para usuarios logados */
 Route::group(['middleware' => ['apiJWT']], function() {
@@ -39,11 +45,11 @@ Route::group(['middleware' => ['apiJWT']], function() {
     Route::get('/refresh', [AuthController::class, 'refresh']);
     Route::get('/me', [AuthController::class, 'me']);
 
-    Route::prefix('products')->group(function() {
-        Route::post('/create', [DashboardProductController::class, 'create']);
-        Route::post('/{id}/edit', [DashboardProductController::class, 'edit']);
-        Route::delete('/{id}/delete', [DashboardProductController::class, 'destroy']);
-    });
+    // Route::prefix('products')->group(function() {
+    //     Route::post('/create', [DashboardProductController::class, 'create']);
+    //     Route::post('/{id}/edit', [DashboardProductController::class, 'edit']);
+    //     Route::delete('/{id}/delete', [DashboardProductController::class, 'destroy']);
+    // });
 
     Route::prefix('orders')->group(function() {
         Route::get('/', [DashboardOrderController::class, 'get']);
