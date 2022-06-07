@@ -99,36 +99,36 @@ class DashboardProductService
             }
             /* */
 
-            /* Verifica se a imagem existe */
-            if(!$request->hasFile('image')) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'É necessário uma imagem do produto',
-                    'where' => 'image'
-                ]);
-            }
-            /* */
+            // /* Verifica se a imagem existe */
+            // if(!$request->hasFile('image')) {
+            //     return response()->json([
+            //         'status' => 'error',
+            //         'message' => 'É necessário uma imagem do produto',
+            //         'where' => 'image'
+            //     ]);
+            // }
+            // /* */
 
-            /* Verifica o tamanho do arquivo */
-            $maxSize = 2621440;
-            if($request->file('image')->getSize() > $maxSize) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Selecione uma imagem com até 2,5MB',
-                    'where' => 'image'
-                ]);
-            }
-            /* */
+            // /* Verifica o tamanho do arquivo */
+            // $maxSize = 2621440;
+            // if($request->file('image')->getSize() > $maxSize) {
+            //     return response()->json([
+            //         'status' => 'error',
+            //         'message' => 'Selecione uma imagem com até 2,5MB',
+            //         'where' => 'image'
+            //     ]);
+            // }
+            // /* */
 
-            /* Verifica a extensão da imagem */
-            if($request->image->extension() != 'jpeg' && $request->image->extension() != 'jpg' && $request->image->extension() != 'png') {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'O formato do arquivo é inválido. Use apenas: JPEG, JPG, ou PNG',
-                    'where' => 'image'
-                ]);
-            }
-            /* */
+            // /* Verifica a extensão da imagem */
+            // if($request->image->extension() != 'jpeg' && $request->image->extension() != 'jpg' && $request->image->extension() != 'png') {
+            //     return response()->json([
+            //         'status' => 'error',
+            //         'message' => 'O formato do arquivo é inválido. Use apenas: JPEG, JPG, ou PNG',
+            //         'where' => 'image'
+            //     ]);
+            // }
+            // /* */
 
             return $this->dashboardProductRepository->create($request, $user);
         }
