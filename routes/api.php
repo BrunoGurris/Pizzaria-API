@@ -54,6 +54,7 @@ Route::group(['middleware' => ['apiJWT']], function() {
 
     Route::prefix('orders')->group(function() {
         Route::get('/', [DashboardOrderController::class, 'get']);
+        Route::delete('/{id}/delete', [DashboardOrderController::class, 'destroy']);
     });
 });
 /* */

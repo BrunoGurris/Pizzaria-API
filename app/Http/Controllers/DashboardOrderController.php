@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\DashboardOrderService;
 use App\Models\Order;
 use Exception;
 use Illuminate\Http\Request;
 
 class DashboardOrderController extends Controller
 {
+    private $dashboardOrderService;
+
+    public function __construct(DashboardOrderService $dashboardOrderService)
+    {
+        $this->dashboardOrderService = $dashboardOrderService;
+    }
+
     public function get(Request $request)
     {
         try {
@@ -33,6 +41,22 @@ class DashboardOrderController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Não foi possível carregar os pedidos'
+            ], 400);
+        }
+    }
+
+
+    public function destroy($id)
+    {
+        try {
+            $order = Order::findOrFail($id);
+
+            return $this->dashboardOrderService->destroy($order);
+        }
+        catch(Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Não foi possível deletar o pedido'
             ], 400);
         }
     }
