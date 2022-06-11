@@ -18,35 +18,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-/* Rotas para usuarios deslogados */
-Route::post('/login', [AuthController::class, 'login']);
-
 Route::prefix('products')->group(function() {
     Route::get('/', [ProductController::class, 'get']);
     Route::get('/{slug}', [ProductController::class, 'slug']);
+    Route::get('/id/{id}', [ProductController::class, 'getByID']);
 });
 
 Route::prefix('orders')->group(function() {
+    Route::get('/', [DashboardOrderController::class, 'get']);
     Route::post('/create', [OrderController::class, 'create']);
+    Route::delete('/{id}/delete', [DashboardOrderController::class, 'destroy']);
 });
-/* */
 
+Route::prefix('products')->group(function() {
+    Route::post('/create', [DashboardProductController::class, 'create']);
+    Route::post('/{id}/edit', [DashboardProductController::class, 'edit']);
+    Route::delete('/{id}/delete', [DashboardProductController::class, 'destroy']);
+});
 
-/* Rotas para usuarios logados */
+Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['apiJWT']], function() {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/refresh', [AuthController::class, 'refresh']);
     Route::get('/me', [AuthController::class, 'me']);
-
-    Route::prefix('products')->group(function() {
-        Route::post('/create', [DashboardProductController::class, 'create']);
-        Route::post('/{id}/edit', [DashboardProductController::class, 'edit']);
-        Route::delete('/{id}/delete', [DashboardProductController::class, 'destroy']);
-    });
-
-    Route::prefix('orders')->group(function() {
-        Route::get('/', [DashboardOrderController::class, 'get']);
-    });
 });
-/* */
