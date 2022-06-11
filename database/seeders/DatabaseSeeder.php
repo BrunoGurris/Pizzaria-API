@@ -139,6 +139,18 @@ class DatabaseSeeder extends Seeder
         $product10->slug = 'portuguesa';
         $product10->save();
 
+        $product11 = new Product();
+        $product11->title = 'Strogonof de Frango';
+        $product11->priceP = 32.90;
+        $product11->priceM = 34.90;
+        $product11->priceG = 48.90;
+        $product11->status = 1;
+        $product11->category = 'Salgadas';
+        $product11->ingredients = 'batata-palha, frango';
+        $product11->image = 'storage/products/strogonof-frango.jpg';
+        $product11->slug = 'strogonof-frango';
+        $product11->save();
+
         $order = new Order();
         $order->name = 'Bruno Alexandre';
         $order->cpf = '477.500.968-09';
