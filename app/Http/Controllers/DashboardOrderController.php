@@ -34,7 +34,7 @@ class DashboardOrderController extends Controller
 
             return response()->json([
                 'status' => 'success',
-                'products' => $orders
+                'orders' => $orders
             ], 200);
         }
         catch(Exception $e) {
