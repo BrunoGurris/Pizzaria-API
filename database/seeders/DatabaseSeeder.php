@@ -79,6 +79,66 @@ class DatabaseSeeder extends Seeder
         $product5->slug = 'brigadeiro-com-kit-kat';
         $product5->save();
 
+        $product6 = new Product();
+        $product6->title = 'Banana';
+        $product6->priceP = 31.90;
+        $product6->priceM = 32.90;
+        $product6->priceG = 43.90;
+        $product6->status = 1;
+        $product6->category = 'Doces';
+        $product6->ingredients = 'banana, leite-condensado';
+        $product6->image = 'storage/products/banana.jpg';
+        $product6->slug = 'banana';
+        $product6->save();
+
+        $product7 = new Product();
+        $product7->title = 'Frango com Bacon';
+        $product7->priceP = 32.90;
+        $product7->priceM = 34.90;
+        $product7->priceG = 48.90;
+        $product7->status = 1;
+        $product7->category = 'Salgadas';
+        $product7->ingredients = 'frango, bacon';
+        $product7->image = 'storage/products/frango-bacon.jpg';
+        $product7->slug = 'frango-com-bacon';
+        $product7->save();
+
+        $product8 = new Product();
+        $product8->title = 'Costela';
+        $product8->priceP = 32.90;
+        $product8->priceM = 34.90;
+        $product8->priceG = 48.90;
+        $product8->status = 1;
+        $product8->category = 'Salgadas';
+        $product8->ingredients = 'costela, mussarela, queijo';
+        $product8->image = 'storage/products/costela.jpg';
+        $product8->slug = 'costela';
+        $product8->save();
+
+        $product9 = new Product();
+        $product9->title = 'Chocolate com Ninho';
+        $product9->priceP = 32.90;
+        $product9->priceM = 34.90;
+        $product9->priceG = 48.90;
+        $product9->status = 1;
+        $product9->category = 'Doces';
+        $product9->ingredients = 'chocolate, leite ninho';
+        $product9->image = 'storage/products/chocolate-ninho.jpg';
+        $product9->slug = 'chocolate-com-ninho';
+        $product9->save();
+
+        $product10 = new Product();
+        $product10->title = 'Portuguesa';
+        $product10->priceP = 32.90;
+        $product10->priceM = 34.90;
+        $product10->priceG = 48.90;
+        $product10->status = 1;
+        $product10->category = 'Salgadas';
+        $product10->ingredients = 'cebola, palmito, ovo';
+        $product10->image = 'storage/products/portuguesa.jpg';
+        $product10->slug = 'portuguesa';
+        $product10->save();
+
         $order = new Order();
         $order->name = 'Bruno Alexandre';
         $order->cpf = '477.500.968-09';
